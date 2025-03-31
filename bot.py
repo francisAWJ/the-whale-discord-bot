@@ -4,7 +4,7 @@ import asyncio
 
 from dotenv import load_dotenv
 from discord.ext import commands
-from cogs.scraper import Scraper
+from cogs.scraper import RPG
 from cogs.music import Music
 from cogs.misc import Misc
 
@@ -31,7 +31,7 @@ async def on_ready():
 
 async def main():
     async with bot:
-        await bot.add_cog(Scraper(bot))
+        await bot.add_cog(RPG(bot))
         await bot.add_cog(Music(bot))
         await bot.add_cog(Misc(bot))
         
