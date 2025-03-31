@@ -1,4 +1,3 @@
-import random
 import discord
 import textwrap
 from PIL import Image
@@ -43,11 +42,4 @@ class Misc(commands.Cog):
             img.save(img_binary, 'PNG')
             img_binary.seek(0)
             await ctx.send(file=discord.File(fp=img_binary, filename='image.png'))
-
-    @commands.command(name='roll', help="Simulate a dice roll (d20 by default)")
-    async def roll(self, ctx, number_of_dice: int=1, number_of_sides: int=20):
-        dice = [
-            str(random.choice(range(1, number_of_sides + 1))) for _ in range(number_of_dice)
-        ]
-        await ctx.send(', '.join(dice))
     
