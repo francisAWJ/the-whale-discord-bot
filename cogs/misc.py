@@ -50,12 +50,4 @@ class Misc(commands.Cog):
             str(random.choice(range(1, number_of_sides + 1))) for _ in range(number_of_dice)
         ]
         await ctx.send(', '.join(dice))
-
-    @commands.command(name='kys', help="Tells you to keep yourself safe 💙")
-    async def kys(self, ctx, member: discord.Member=None):
-        
-        if member is not None:
-            return await ctx.send(f"KILL YOURSELF {member.mention}")
-        
-        await ctx.send(f"KILL YOURSELF {ctx.author.mention}")
     
