@@ -1,7 +1,7 @@
 from playwright.async_api import async_playwright
 from discord.ext import commands
 
-class Scraper(commands.Cog):
+class RPG(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     
