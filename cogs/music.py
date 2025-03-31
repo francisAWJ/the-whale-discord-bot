@@ -50,7 +50,7 @@ class Music(commands.Cog):
     @commands.command(name='join', help="Tells the bot to join the voice channel")
     async def join(self, ctx):
         if not ctx.message.author.voice:
-            await ctx.send("{} is not connected to a voice channel".format(ctx.message.author.name))
+            await ctx.send(f"{ctx.message.author.name} is not connected to a voice channel!!!")
             return
         else:
             channel = ctx.message.author.voice.channel
@@ -62,7 +62,7 @@ class Music(commands.Cog):
         if voice_client.is_connected():
             await voice_client.disconnect()
         else:
-            await ctx.send("The bot is not connected to a voice channel.")
+            await ctx.send("i'm not connected to a voice channel...")
     
     @commands.command(name='play', help="Stream a song from a URL")
     async def play(self, ctx, url):
@@ -70,19 +70,19 @@ class Music(commands.Cog):
         voice_channel = server.voice_client
         
         if not voice_channel or not voice_channel.is_connected():
-            await ctx.send("The bot is not connected to a voice channel.")
+            await ctx.send("i'm not connected to a voice channel...")
             return
 
         try:
             async with ctx.typing():
                 player = await YTDLSource.from_url(url, loop=self.bot.loop, stream=True)
                 source = discord.FFmpegPCMAudio(player.url, before_options="-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5")
-                voice_channel.play(source, after=lambda e: print(f'Player error: {e}') if e else None)
+                voice_channel.play(source, after=lambda e: print(f'player error: {e}') if e else None)
 
-            await ctx.send(f'**Now playing**: {player.title}')
+            await ctx.send(f'**now playing**: {player.title}')
         except Exception as e:
             print(f"Error: {e}")
-            await ctx.send(f"An error occurred: {e}")
+            await ctx.send(f"an error occurred: {e}")
 
     @commands.command(name='pause', help="Pauses the currently playing song")
     async def pause(self, ctx):
@@ -90,7 +90,7 @@ class Music(commands.Cog):
         if voice_client.is_playing():
             await voice_client.pause()
         else:
-            await ctx.send("The bot is not playing anything at the moment.")
+            await ctx.send("i'm not playing anything at the moment...")
         
     @commands.command(name='resume', help="Resumes the song")
     async def resume(self, ctx):
@@ -98,7 +98,7 @@ class Music(commands.Cog):
         if voice_client.is_paused():
             await voice_client.resume()
         else:
-            await ctx.send("The bot was not playing anything before this. Use the play command")
+            await ctx.send("i wasn't playing anthing...")
 
     @commands.command(name='stop', help="Stops the song")
     async def stop(self, ctx):
@@ -106,4 +106,4 @@ class Music(commands.Cog):
         if voice_client.is_playing():
             await voice_client.stop()
         else:
-            await ctx.send("The bot is not playing anything at the moment.")
+            await ctx.send("i'm not playing anything at the moment...")
