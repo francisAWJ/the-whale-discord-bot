@@ -4,7 +4,7 @@ import asyncio
 
 from dotenv import load_dotenv
 from discord.ext import commands
-from cogs.scraper import RPG
+from cogs.rpg import RPG
 from cogs.music import Music
 from cogs.misc import Misc
 
