@@ -1,3 +1,4 @@
+import random
 from playwright.async_api import async_playwright
 from discord.ext import commands
 
@@ -33,4 +34,11 @@ class RPG(commands.Cog):
                 results_to_send = results_to_send + f"\n{i+1}. **{parsed[i]['title']}** ({parsed[i]['article_type']}): <https://2e.aonprd.com{parsed[i]['url']}>"
             
             await ctx.send(results_to_send)
+    
+    @commands.command(name='roll', help="Simulate a dice roll (d20 by default)")
+    async def roll(self, ctx, number_of_dice: int=1, number_of_sides: int=20):
+        dice = [
+            str(random.choice(range(1, number_of_sides + 1))) for _ in range(number_of_dice)
+        ]
+        await ctx.send(', '.join(dice))
     
