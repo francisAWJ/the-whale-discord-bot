@@ -21,7 +21,7 @@ class Misc(commands.Cog):
         
         draw = ImageDraw.Draw(img)
 
-        lines = textwrap.wrap(text, width=24)
+        lines = textwrap.wrap(text, width=26)
         text = "\n".join(lines)
         
         _, _, _, h = draw.multiline_textbbox((0, 0), 
