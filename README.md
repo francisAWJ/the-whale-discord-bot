@@ -9,4 +9,4 @@ Here are some of the things that the bot can do:
 - Create Steven Seagal memes through PIL (I don't know why I added this.)
 - Basic functionality for playing tabletop RPGs, such as a d20 dice roller and a command that allows searching through Archives of Nethys
 
-The bot needs ffmpeg.exe to run. 
+The bot was made using [discord.py](https://discordpy.readthedocs.io/en/stable/) The bot needs ffmpeg.exe to run. 
