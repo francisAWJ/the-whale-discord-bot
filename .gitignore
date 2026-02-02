@@ -173,3 +173,5 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 piece_of_shit_discord_bot.zip
+
+ffmpeg.exe
